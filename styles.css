@@ -7,8 +7,30 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+
+    gap: 50px;
+}
+
 .container {
     display: grid;
-    width: 1000px;
-    grid-template-columns: repeat(auto-fit, 200px);
+    width: 100%;
+    grid-template-columns: 200px 100px;
+    justify-content: center;
+}
+
+.item {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#btn {
+    width: 200px;
+    height: 2em;
+
+    font-size: 20px;
 }
