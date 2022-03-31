@@ -28,9 +28,20 @@ body {
     text-align: center;
 }
 
+.newItem {
+    border: 1px solid black;
+    text-align: center;
+}
+
 #btn {
     width: 200px;
     height: 2em;
 
     font-size: 20px;
+}
+
+.form-container {
+    opacity: 0;
+    background-color: bisque;
+    padding: 20px;
 }
