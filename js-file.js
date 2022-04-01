@@ -28,6 +28,10 @@ function addBookToLibrary() {
 
 // myLibrary[0] = new Book("AAA", "AAA", "123", "read it");
 
+function removeBook(i) {
+    myLibrary.splice(i, 1);
+}
+
 function display() {
     const items = document.querySelectorAll(".newItem");
     items.forEach((item) => {
@@ -50,6 +54,18 @@ function display() {
         div4.classList.add("newItem");
         div4.textContent = myLibrary[i].status;
 
+        const rmButton = document.createElement('button');
+        rmButton.classList.add("rmButton");
+        rmButton.setAttribute('id', i);
+        rmButton.textContent = "␡";
+
+        rmButton.addEventListener('click', () => {
+            alert(rmButton.id);
+            removeBook(rmButton.id);
+            display();
+        })
+
+        div1.appendChild(rmButton);
         container.appendChild(div1);
         container.appendChild(div2);
         container.appendChild(div3);
@@ -70,4 +86,3 @@ submit.addEventListener('click', () => {
     formContainer.style.cssText = "opacity: 0"
     display();
 });
-
