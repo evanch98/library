@@ -14,7 +14,13 @@
             Book Title
         </div>
         <div class="item">
-            Info
+            Author
+        </div>
+        <div class="item">
+            Pages
+        </div>
+        <div class="item">
+            Status
         </div>
     </div>
     <button id="btn">New Book</button>
@@ -33,8 +39,10 @@
                 <input type="text" id="pages" name="pages">
             </div>
             <div>
-                <label for="status">Have you read it?</label>
-                <input type="text" id="status" name="status">
+                <label for="status">
+                    <input type="checkbox" id="status" value="yes">
+                    Have you read it?
+                </label>
             </div>
             <button type="button" id="submit">Add</button>
         </form>
