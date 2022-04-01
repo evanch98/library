@@ -53,11 +53,21 @@ function display() {
         const div4 = document.createElement('div');
         div4.classList.add("newItem");
         div4.textContent = myLibrary[i].status;
+        div4.style.cursor = 'pointer';
+        div4.addEventListener('click', () => {
+            if (myLibrary[i].status === "✓") {
+                myLibrary[i].status = "✖";
+            }
+            else {
+                myLibrary[i].status = "✓";
+            }
+            display();
+        });
 
         const rmButton = document.createElement('button');
         rmButton.classList.add("rmButton");
         rmButton.setAttribute('id', i);
-        rmButton.textContent = "␡";
+        rmButton.textContent = "╳";
 
         rmButton.addEventListener('click', () => {
             alert(rmButton.id);
