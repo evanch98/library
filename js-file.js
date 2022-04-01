@@ -10,11 +10,16 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
+// Function to add book objects to myLibrary
 function addBookToLibrary() {
     let state;
+
+    // Getting values from form input
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
+
+    // Checking whether the checkbox is checked
     let check = document.querySelector("#status").checked;
     if (check === true) {
         state = "✓";
@@ -26,12 +31,12 @@ function addBookToLibrary() {
     myLibrary.push(addBook);
 }
 
-// myLibrary[0] = new Book("AAA", "AAA", "123", "read it");
-
+// To remove book
 function removeBook(i) {
     myLibrary.splice(i, 1);
 }
 
+// Function to display books on the screen
 function display() {
     const items = document.querySelectorAll(".newItem");
     items.forEach((item) => {
@@ -67,10 +72,9 @@ function display() {
         const rmButton = document.createElement('button');
         rmButton.classList.add("rmButton");
         rmButton.setAttribute('id', i);
-        rmButton.textContent = "╳";
+        rmButton.textContent = "del";
 
         rmButton.addEventListener('click', () => {
-            alert(rmButton.id);
             removeBook(rmButton.id);
             display();
         })
@@ -83,13 +87,14 @@ function display() {
     }
 }
 
+// Setting the formContainer opacity to 1 upon clicking the button to allow users to insert book
 const newBook = document.querySelector("#btn");
 newBook.addEventListener('click', () => {
     formContainer.style.cssText = "opacity: 1";
 });
 
-console.log(addBookToLibrary);
-
+// Event listener for submit button
+// After clicking the submit button, the opacity of the formContainer will change into 0
 const submit = document.querySelector("#submit");
 submit.addEventListener('click', () => {
     addBookToLibrary();
