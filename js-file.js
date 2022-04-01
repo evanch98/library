@@ -11,10 +11,18 @@ function Book(title, author, pages, status) {
 }
 
 function addBookToLibrary() {
+    let state;
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    const addBook = new Book(title, author, pages, 'yes');
+    let check = document.querySelector("#status").checked;
+    if (check === true) {
+        state = "✓";
+    }
+    else {
+        state = "✖";
+    }
+    const addBook = new Book(title, author, pages, state);
     myLibrary.push(addBook);
 }
 
@@ -33,15 +41,25 @@ function display() {
         const div2 = document.createElement('div');
         div2.classList.add("newItem");
         div2.textContent = myLibrary[i].author;
+
+        const div3 = document.createElement('div');
+        div3.classList.add("newItem");
+        div3.textContent = myLibrary[i].pages;
+
+        const div4 = document.createElement('div');
+        div4.classList.add("newItem");
+        div4.textContent = myLibrary[i].status;
+
         container.appendChild(div1);
         container.appendChild(div2);
+        container.appendChild(div3);
+        container.appendChild(div4);
     }
 }
 
 const newBook = document.querySelector("#btn");
 newBook.addEventListener('click', () => {
     formContainer.style.cssText = "opacity: 1";
-    display();
 });
 
 console.log(addBookToLibrary);
@@ -50,6 +68,6 @@ const submit = document.querySelector("#submit");
 submit.addEventListener('click', () => {
     addBookToLibrary();
     formContainer.style.cssText = "opacity: 0"
-    console.log(myLibrary);
+    display();
 });
 
