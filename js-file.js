@@ -3,11 +3,13 @@ let myLibrary = [];
 const container = document.querySelector(".container");
 const formContainer = document.querySelector(".form-container");
 
-function Book(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
+class Book {
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
 }
 
 // Function to add book objects to myLibrary
