@@ -29,15 +29,15 @@
         <form class="form">
             <div class="row">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" pattern="[A-Za-z0-9]+" required>
             </div>
             <div class="row">
                 <label for="author">Author</label>
-                <input type="text" id="author" name="author">
+                <input type="text" id="author" name="author" pattern="[A-Za-z]+" required>
             </div>
             <div class="row">
                 <label for="pages">Pages</label>
-                <input type="text" id="pages" name="pages">
+                <input type="text" id="pages" name="pages" pattern="[0-9]+" required>
             </div>
             <div>
                 <label for="status">
