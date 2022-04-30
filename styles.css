@@ -115,6 +115,10 @@ input[type="text"]:focus {
     border: 1px solid #fafaf9;
 }
 
+input[type="text"]:invalid {
+    border: 2px solid red;
+}
+
 label {
     font-size: 20px;
 }
