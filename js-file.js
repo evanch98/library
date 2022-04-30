@@ -2,6 +2,9 @@ let myLibrary = [];
 
 const container = document.querySelector(".container");
 const formContainer = document.querySelector(".form-container");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
 
 class Book {
     constructor(title, author, pages, status) {
@@ -89,6 +92,34 @@ function display() {
     }
 }
 
+// Text input validation
+title.addEventListener("input", () => {
+    if (title.validity.patternMismatch) {
+        title.setCustomValidity("Title should not be empty!");
+        title.reportValidity();
+    } else {
+        title.setCustomValidity("");
+    }
+});
+
+author.addEventListener("input", () => {
+    if (author.validity.patternMismatch) {
+        author.setCustomValidity("Author name should be letters and should not be empty!");
+        author.reportValidity();
+    } else {
+        author.setCustomValidity("");
+    }
+});
+
+pages.addEventListener("input", () => {
+    if (pages.validity.patternMismatch) {
+        pages.setCustomValidity("Pages should be number and should not be empty!");
+        pages.reportValidity();
+    } else {
+        pages.setCustomValidity("");
+    }
+});
+
 // Setting the formContainer opacity to 1 upon clicking the button to allow users to insert book
 const newBook = document.querySelector("#btn");
 newBook.addEventListener('click', () => {
@@ -99,7 +130,9 @@ newBook.addEventListener('click', () => {
 // After clicking the submit button, the opacity of the formContainer will change into 0
 const submit = document.querySelector("#submit");
 submit.addEventListener('click', () => {
-    addBookToLibrary();
-    formContainer.style.cssText = "opacity: 0"
+    if (title.validity.valid && author.validity.valid && pages.validity.valid) {
+        addBookToLibrary();
+        formContainer.style.cssText = "opacity: 0";
+    }
     display();
 });
